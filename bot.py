@@ -9,7 +9,9 @@ async def sell(update: Update, context: ContextTypes.DEFAULT_TYPE): await update
 async def my_deals(update: Update, context: ContextTypes.DEFAULT_TYPE): await update.message.reply_text( "📋 My Deals\n\n" "You currently have no active deals." )
 async def terms(update: Update, context: ContextTypes.DEFAULT_TYPE): await update.message.reply_text( "📜 Terms\n\n" "Please read the terms before making a transaction." )
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE): await update.message.reply_text( "💬 Support\n\n" "Contact the administrator for help." )
-async def buttons(update: Update, context: ContextTypes.DEFAULT_TYPE): query = update.callback_query await query.answer()
+async def buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
 if query.data == "sell":
     text = "💎 Sell NFT\n\nFollow the instructions to start a sale."
 elif query.data == "exchange":
@@ -40,4 +42,5 @@ app.add_handler(CallbackQueryHandler(buttons))
 print("NFTDealer is running...")
 
 app.run_polling()
-if name == "main": main()
+if __name__ == "__main__":
+    main()
