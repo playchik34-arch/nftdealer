@@ -1,5 +1,6 @@
 import os
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
+from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 TOKEN = os.getenv("BOT_TOKEN")
 def main_menu(): keyboard = [ [ InlineKeyboardButton("💎 Sell NFT", callback_data="sell"), InlineKeyboardButton("🔄 Exchange NFT", callback_data="exchange"), ], [ InlineKeyboardButton("📋 My Deals", callback_data="deals"), InlineKeyboardButton("📜 Terms", callback_data="terms"), ], [ InlineKeyboardButton("💬 Support", callback_data="help"), ], ]
 return InlineKeyboardMarkup(keyboard)
